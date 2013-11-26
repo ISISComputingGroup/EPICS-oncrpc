@@ -119,6 +119,10 @@ xdr_float(xdrs, fp)
 #define _X86_
 #endif
 
+#if defined(_M_IX86) || defined(_M_X64)
+#define _X86_
+#endif
+
 #ifdef _ALPHA_
 /*also DEC ALPHA is same endian for NT as Intel so...*/
 #define _X86_
