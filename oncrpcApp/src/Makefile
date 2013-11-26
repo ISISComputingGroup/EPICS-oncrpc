@@ -10,14 +10,10 @@ include $(TOP)/configure/CONFIG
 
 LIBRARY_IOC += oncrpc
 
-# xxxRecord.h will be created from xxxRecord.dbd
-#DBDINC += xxxRecord
-# install oncrpc.dbd into <top>/dbd
-DBD += oncrpc.dbd
+PROD_IOC += portmap rpcgen
 
 # specify all source files to be compiled and added to the library
-#oncrpc_SRCS += xxx
-SRC_DIRS += $(ONCRPC)/win32/librpc
+SRC_DIRS += $(ONCRPC)/win32/include $(ONCRPC)/win32/librpc $(ONCRPC)/win32/rpcgen
 
 oncrpc_SRCS += \
 		CLNT_RAW.c \
@@ -60,16 +56,22 @@ oncrpc_SRCS += \
 		BCOPY.c \
 		NT.c
 
-#INC += $(ONCRPC)/rpc
+INC += rpc/auth.h rpc/auth_uni.h rpc/bcopy.h rpc/clnt.h rpc/Netdb.h rpc/Pmap_cln.h \
+		rpc/Pmap_pro.h rpc/pmap_rmt.h rpc/Rpc.h rpc/rpc_msg.h rpc/svc.h rpc/svc_auth.h \
+		rpc/types.h rpc/xdr.h
 
-USR_INCLUDES += -I$(ONCRPC)/win32/include
 USR_CPPFLAGS += -DONCRPCDLL -DWIN32 -D_NT -D_WINDOWS
-#USR_CXXFLAGS
-#USR_LDFLAGS
-
 
 oncrpc_LIBS += $(EPICS_BASE_IOC_LIBS)
 oncrpc_SYS_LIBS_WIN32 += ws2_32 advapi32
+
+portmap_SRCS += portmap.c
+portmap_LIBS += oncrpc
+portmap_SYS_LIBS_WIN32 += ws2_32
+
+rpcgen_SRCS += rpc_main.c rpc_hout.c rpc_cout.c rpc_pars.c rpc_scan.c rpc_util.c rpc_svco.c rpc_clnt.c
+rpcgen_LIBS += oncrpc
+rpcgen_SYS_LIBS_WIN32 += ws2_32
 
 #===========================
 
