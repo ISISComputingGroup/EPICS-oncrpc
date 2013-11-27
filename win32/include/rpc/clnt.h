@@ -263,13 +263,13 @@ typedef struct {
  *	u_long prog;
  *	u_long vers;
  */
-DllExport CLIENT *clntraw_create();
+RpcDllImport CLIENT *clntraw_create();
 
 
 /*
  * Generic client creation routine. Supported protocols are "udp" and "tcp"
  */
-DllExport CLIENT *
+RpcDllImport CLIENT *
 clnt_create(/*host, prog, vers, prot*/); /*
 	char *host; 	-- hostname
 	u_long prog;	-- program number
@@ -291,7 +291,7 @@ clnt_create(/*host, prog, vers, prot*/); /*
  *	u_int sendsz;
  *	u_int recvsz;
  */
-DllExport CLIENT *clnttcp_create();
+RpcDllImport CLIENT *clnttcp_create();
 
 /*
  * UDP based rpc.
@@ -314,25 +314,25 @@ DllExport CLIENT *clnttcp_create();
  *	u_int sendsz;
  *	u_int recvsz;
  */
-DllExport CLIENT *clntudp_create();
-DllExport CLIENT *clntudp_bufcreate();
+RpcDllImport CLIENT *clntudp_create();
+RpcDllImport CLIENT *clntudp_bufcreate();
 
 /*
  * Print why creation failed
  */
-DllExport void clnt_pcreateerror(/* char *msg */);	/* stderr */
-DllExport char *clnt_spcreateerror(/* char *msg */);	/* string */
+RpcDllImport void clnt_pcreateerror(/* char *msg */);	/* stderr */
+RpcDllImport char *clnt_spcreateerror(/* char *msg */);	/* string */
 
 /*
  * Like clnt_perror(), but is more verbose in its output
  */ 
-DllExport void clnt_perrno(/* enum clnt_stat num */);	/* stderr */
+RpcDllImport void clnt_perrno(/* enum clnt_stat num */);	/* stderr */
 
 /*
  * Print an English error message, given the client error code
  */
-DllExport void clnt_perror(/* CLIENT *clnt, char *msg */); 	/* stderr */
-DllExport char *clnt_sperror(/* CLIENT *clnt, char *msg */);	/* string */
+RpcDllImport void clnt_perror(/* CLIENT *clnt, char *msg */); 	/* stderr */
+RpcDllImport char *clnt_sperror(/* CLIENT *clnt, char *msg */);	/* string */
 
 /* 
  * If a creation fails, the following allows the user to figure out why.
@@ -344,23 +344,23 @@ struct rpc_createerr {
 
 #ifdef WIN32
 #ifdef ONCRPCDLL
-extern struct rpc_createerr rpc_createerr;
+RpcDllImport struct rpc_createerr rpc_createerr;
 #else
 #ifdef __BORLANDC__
 extern __declspec(dllimport) struct rpc_createerr rpc_createerr;
 #else
-DllExport struct rpc_createerr rpc_createerr;
+RpcDllImport struct rpc_createerr rpc_createerr;
 #endif
 #endif
 #else
-DllExport struct rpc_createerr rpc_createerr;
+RpcDllImport struct rpc_createerr rpc_createerr;
 #endif
 
 
 /*
  * Copy error message to buffer.
  */
-DllExport char *clnt_sperrno(/* enum clnt_stat num */);	/* string */
+RpcDllImport char *clnt_sperrno(/* enum clnt_stat num */);	/* string */
 
 
 

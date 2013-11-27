@@ -24,9 +24,9 @@
  * USE OF. USE ENTIRELY AT YOUR OWN RISK!!!
  *********************************************************************/
 
-DllExport void bcopy(char *,char*,int);
+RpcDllImport void bcopy(char *,char*,int);
 //void bcopy_nf(char *,char *,int);
 //void bcopy_fn(char *,char *,int);
 //void bcopy_ff(char *,char *,int);
-DllExport void bzero(char*,int);
-DllExport int bcmp(char *s1, char *s2, int len);
+RpcDllImport void bzero(char*,int);
+RpcDllImport int bcmp(char *s1, char *s2, int len);

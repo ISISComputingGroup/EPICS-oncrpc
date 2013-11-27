@@ -18,13 +18,7 @@
 #ifndef __all_oncrpc_includes__
 #define __all_oncrpc_includes__
 
-#ifdef WIN32
-#ifndef DllExport
-#define DllExport	__declspec( dllexport )
-#endif
-#ifndef DllImport
-#define DllImport   __declspec( dllimport )
-#endif
+#ifdef _WIN32
 
 #if defined _W95 || defined _NT
 #include <stdio.h>
@@ -34,8 +28,8 @@
 #include <malloc.h>
 #endif
 
-#include <rpc/netdb.h>
 #include <rpc/rpc.h>
+#include <rpc/netdb.h>
 #include <rpc/xdr.h>
 #include <rpc/auth.h>
 #include <rpc/auth_uni.h>
@@ -50,12 +44,6 @@
 #include <winsock.h>
 
 #else  /* not WIN32 */
-#ifndef DllExport
-#define DllExport	extern
-#endif
-#ifndef DllImport
-#define DllImport   extern
-#endif
 
 #include <rpc/types.h>
 #include <rpc/xdr.h>
@@ -77,7 +65,7 @@
 #include <arpa/inet.h>
 #endif
 
-DllExport void get_myaddress(struct sockaddr_in *addr);
+RpcDllExport void get_myaddress(struct sockaddr_in *addr);
 int bindresvport(int sd,struct sockaddr_in *sin);
 void bcopy(char *s1,char *s2, int len);
 void bzero(char *s, int len);

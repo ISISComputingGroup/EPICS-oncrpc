@@ -85,9 +85,9 @@
  *		address if the responder to the broadcast.
  */
 
-DllExport bool_t		pmap_set();
-DllExport bool_t		pmap_unset();
-DllExport struct pmaplist	*pmap_getmaps();
+RpcDllImport bool_t		pmap_set();
+RpcDllImport bool_t		pmap_unset();
+RpcDllImport struct pmaplist	*pmap_getmaps();
 enum clnt_stat		pmap_rmtcall();
-DllExport enum clnt_stat		clnt_broadcast();
-DllExport u_short		pmap_getport();
+RpcDllImport enum clnt_stat		clnt_broadcast();
+RpcDllImport u_short		pmap_getport();

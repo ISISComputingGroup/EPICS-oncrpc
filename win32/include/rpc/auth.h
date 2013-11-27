@@ -112,7 +112,7 @@ union des_block {
 };
 #endif
 typedef union des_block des_block;
-DllExport bool_t xdr_des_block();
+RpcDllImport bool_t xdr_des_block();
 
 /*
  * Authentication info.  Opaque to client.
@@ -177,16 +177,16 @@ typedef struct {
 
 #ifdef WIN32
 #ifdef ONCRPCDLL
-extern struct opaque_auth _null_auth;
+RpcDllImport struct opaque_auth _null_auth;
 #else
 #ifdef __BORLANDC__
 extern __declspec(dllimport) struct opaque_auth _null_auth;
 #else
-DllExport struct opaque_auth _null_auth;
+RpcDllImport struct opaque_auth _null_auth;
 #endif
 #endif
 #else  /* not WIN32 */
-DllExport struct opaque_auth _null_auth;
+RpcDllImport struct opaque_auth _null_auth;
 #endif
 
 
@@ -203,10 +203,10 @@ DllExport struct opaque_auth _null_auth;
  *	int len;
  *	int *aup_gids;
  */
-DllExport AUTH *authunix_create();
-DllExport AUTH *authunix_create_default();	/* takes no parameters */
-DllExport AUTH *authnone_create();		/* takes no parameters */
-DllExport AUTH *authdes_create();
+RpcDllImport AUTH *authunix_create();
+RpcDllImport AUTH *authunix_create_default();	/* takes no parameters */
+RpcDllImport AUTH *authnone_create();		/* takes no parameters */
+RpcDllImport AUTH *authdes_create();
 
 #define AUTH_NONE	0		/* no authentication */
 #define	AUTH_NULL	0		/* backward compatibility */

@@ -91,7 +91,7 @@ struct authunix_parms {
 	int	*aup_gids;
 };
 
-DllExport bool_t xdr_authunix_parms();
+RpcDllImport bool_t xdr_authunix_parms();
 
 /* 
  * If a response verifier has flavor AUTH_SHORT, 
