@@ -12,7 +12,7 @@ PROD_IOC += portmap rpcgen
 
 SRC_DIRS += $(ONCRPC)/win32/librpc $(ONCRPC)/win32/rpcgen
 
-USR_CPPFLAGS += -DWIN32 -D_NT -D_WINDOWS
+USR_CPPFLAGS += -DWIN32 -D_NT -D_WINDOWS -I$(ONCRPC)/win32/include
 
 portmap_SRCS += portmap.c
 portmap_LIBS += oncrpc

@@ -14,48 +14,48 @@ LIBRARY_IOC += oncrpc
 SRC_DIRS += $(ONCRPC)/win32/include $(ONCRPC)/win32/librpc
 
 oncrpc_SRCS += \
-		CLNT_RAW.c \
-		XDR.c \
-		CLNT_TCP.c \
-		CLNT_UDP.c \
-		PMAP_RMT.c \
-		RPC_PROT.c \
-		SVC_AUTU.c \
-		SVC_AUTH.c \
-		SVC_RAW.c \
-		SVC_RUN.c \
-		SVC_TCP.c \
-		SVC_UDP.c \
-		XDR_MEM.c \
-		XDR_REC.c \
-		AUTH_NON.c \
-		AUTH_UNI.c \
-		AUTHUNIX.c \
-		BINDRESV.c \
-		CLNT_GEN.c \
-		CLNT_PER.c \
-		CLNT_SIM.c \
-		GET_MYAD.c \
-		GETRPCEN.c \
-		GETRPCPO.c \
-		PMAP_CLN.c \
-		PMAP_GET.c \
-		PMAP_GMA.c \
-		PMAP_PRO.c \
-		PMAP_PR.c \
-		RPC_CALL.c \
-		RPC_COMM.c \
-		SVC_SIMP.c \
-		XDR_ARRA.c \
-		XDR_FLOA.c \
-		XDR_REFE.c \
-		XDR_STDI.c \
-		SVC.c \
-		BCOPY.c \
-		NT.c
-
-INC += rpc/auth.h rpc/auth_uni.h rpc/bcopy.h rpc/clnt.h rpc/Netdb.h rpc/Pmap_cln.h \
-		rpc/Pmap_pro.h rpc/pmap_rmt.h rpc/Rpc.h rpc/rpc_msg.h rpc/svc.h rpc/svc_auth.h \
+		clnt_raw.c \
+		Xdr.c \
+		Clnt_tcp.c \
+		Clnt_udp.c \
+		Pmap_rmt.c \
+		rpc_prot.c \
+		Svc_autu.c \
+		svc_auth.c \
+		svc_raw.c \
+		Svc_run.c \
+		Svc_tcp.c \
+		Svc_udp.c \
+		xdr_mem.c \
+		Xdr_rec.c \
+		Auth_non.c \
+		Auth_uni.c \
+		authunix.c \
+		Bindresv.c \
+		clnt_gen.c \
+		Clnt_per.c \
+		clnt_sim.c \
+		Get_myad.c \
+		Getrpcen.c \
+		Getrpcpo.c \
+		Pmap_cln.c \
+		pmap_get.c \
+		pmap_gma.c \
+		pmap_pro.c \
+		pmap_pr.c \
+		rpc_call.c \
+		rpc_comm.c \
+		Svc_simp.c \
+		Xdr_arra.c \
+		xdr_floa.c \
+		Xdr_refe.c \
+		xdr_stdi.c \
+		Svc.c \
+		bcopy.c \
+		nt.c
+		
+INC += rpc/auth.h rpc/auth_uni.h rpc/bcopy.h rpc/clnt.h rpc/netdb.h rpc/pmap_cln.h \
+		rpc/pmap_pro.h rpc/pmap_rmt.h rpc/rpc.h rpc/rpc_msg.h rpc/svc.h rpc/svc_auth.h \
 		rpc/types.h rpc/xdr.h
 
 USR_CPPFLAGS += -DWIN32 -D_NT -D_WINDOWS -DONCRPCDLL
