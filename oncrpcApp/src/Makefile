@@ -54,10 +54,6 @@ oncrpc_SRCS += \
 		bcopy.c \
 		nt.c
 		
-INC += rpc/auth.h rpc/auth_uni.h rpc/bcopy.h rpc/clnt.h rpc/netdb.h rpc/pmap_cln.h \
-		rpc/pmap_pro.h rpc/pmap_rmt.h rpc/rpc.h rpc/rpc_msg.h rpc/svc.h rpc/svc_auth.h \
-		rpc/types.h rpc/xdr.h
-
 USR_CPPFLAGS += -DWIN32 -D_NT -D_WINDOWS -DONCRPCDLL
 
 oncrpc_SYS_LIBS_WIN32 += ws2_32 advapi32
@@ -67,4 +63,6 @@ oncrpc_SYS_LIBS_WIN32 += ws2_32 advapi32
 include $(TOP)/configure/RULES
 #----------------------------------------
 #  ADD RULES AFTER THIS LINE
+install:
+	$(INSTALL) -d -m $(INSTALL_PERMISSIONS) $(wildcard $(ONCRPC)/win32/include/rpc/*.h) $(INSTALL_INCLUDE)/rpc
 
